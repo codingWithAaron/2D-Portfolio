@@ -23,7 +23,7 @@ k.scene('main', async () => {
   const mapData = await (await fetch('./map.json')).json();
   const layers = mapData.layers;
 
-  const map = k.make([
+  const map = k.add([
     k.sprite('map'),
     k.pos(0),
     k.scale(scaleFactor)
@@ -69,12 +69,20 @@ k.scene('main', async () => {
     if (layer.name === 'spawnpoints') {
       for (const entity of layer.objects) {
         if (entity.name === 'player') {
-          player.pos = k.vec2((map.pos.x + entity.x) * scaleFactor, (map.pos.y + entity.y) * scaleFactor);
+          player.pos = k.vec2(
+            (map.pos.x + entity.x) * scaleFactor, 
+            (map.pos.y + entity.y) * scaleFactor
+          );
+          k.add(player);
+          continue;
         }
       }
     }
   }
 
+  k.onUpdate(() => {
+    k.camPos(player.pos.x, player.pos.y + 100);
+  })
 });
 
 k.go('main');
