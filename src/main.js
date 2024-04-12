@@ -6,12 +6,14 @@ k.loadSprite('spritesheet', './spritesheet.png', {
   sliceX: 39,
   sliceY: 31,
   anims: {
-    'idle-down': 936,
-    'walk-down': { from: 936, to: 939, loop: true, speed: 8 },
-    'idle-side': 975,
-    'walk-side': { from: 975, to: 978, loop: true, speed: 8 },
-    'idle-up': 1014,
-    'walk-up': { from: 1014, to: 1017, loop: true, speed: 8 },
+    'idle-down': 784,
+    'walk-down': { from: 784, to: 785, loop: true, speed: 8 },
+    'idle-right': 786,
+    'walk-right': { from: 786, to: 787, loop: true, speed: 8 },
+    'idle-left': 825,
+    'walk-left': { from: 825, to: 826, loop: true, speed: 8 },
+    'idle-up': 823,
+    'walk-up': { from: 823, to: 824, loop: true, speed: 8 },
   },
 });
 
@@ -116,15 +118,13 @@ k.scene('main', async () => {
     }
 
     if (Math.abs(mouseAngle) > upperBound) {
-      player.flipX = false;
-      if (player.curAnim() !== 'walk-side') player.play('walk-side');
+      if (player.curAnim() !== 'walk-right') player.play('walk-right');
       player.direction = 'right';
       return;
     }
 
     if (Math.abs(mouseAngle) < lowerBound) {
-      player.flipX = true;
-      if (player.curAnim() !== 'walk-side') player.play('walk-side');
+      if (player.curAnim() !== 'walk-left') player.play('walk-left');
       player.direction = 'left';
       return;
     }
@@ -140,8 +140,14 @@ k.scene('main', async () => {
       player.play('idle-up')
       return;
     }
-
-    player.play('idle-side');
+    if(player.direction === 'right') {
+      player.play('idle-right')
+      return;
+    }
+    if(player.direction === 'left') {
+      player.play('idle-left')
+      return;
+    }
   });
 
 });
