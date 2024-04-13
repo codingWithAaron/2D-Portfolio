@@ -14,6 +14,10 @@ k.loadSprite('spritesheet', './spritesheet.png', {
     'walk-left': { from: 825, to: 826, loop: true, speed: 8 },
     'idle-up': 823,
     'walk-up': { from: 823, to: 824, loop: true, speed: 8 },
+    'bunny-idle': { from: 780, to: 781, loop: true, speed: 2 },
+    'slime-idle': { from: 858, to: 859, loop: true, speed: 2 },
+    'frog-idle': { from: 788, to: 789, loop: true, speed: 2 },
+
   },
 });
 
@@ -43,13 +47,46 @@ k.scene('main', async () => {
     },
     'player',
   ]);
+  const bunny = k.make([
+    k.sprite('spritesheet', { anim: 'bunny-idle' }),
+    k.area({
+      shape: new k.Rect(k.vec2(0, 3), 10, 10),
+    }),
+    k.body(),
+    k.anchor('center'),
+    k.pos(),
+    k.scale(scaleFactor),
+    'bunny',
+  ]);
+  const slime = k.make([
+    k.sprite('spritesheet', { anim: 'slime-idle' }),
+    k.area({
+      shape: new k.Rect(k.vec2(0, 3), 10, 10),
+    }),
+    k.body(),
+    k.anchor('center'),
+    k.pos(),
+    k.scale(scaleFactor),
+    'slime',
+  ]);
+  const frog = k.make([
+    k.sprite('spritesheet', { anim: 'frog-idle' }),
+    k.area({
+      shape: new k.Rect(k.vec2(0, 3), 10, 10),
+    }),
+    k.body(),
+    k.anchor('center'),
+    k.pos(),
+    k.scale(scaleFactor),
+    'frog',
+  ]);
 
   for (const layer of layers) {
     if (layer.name === 'boundaries') {
       for (const boundary of layer.objects) {
         map.add([
           k.area({
-            shape: new k.Rect(k.vec2(0), boundary.width, boundary.height),
+            shape: new k.Rect(k.vec2(8), boundary.width, boundary.height),
           }),
           k.body({ isStatic: true }),
           k.pos(boundary.x, boundary.y),
@@ -74,10 +111,34 @@ k.scene('main', async () => {
       for (const entity of layer.objects) {
         if (entity.name === 'player') {
           player.pos = k.vec2(
-            (map.pos.x + entity.x) * scaleFactor,
+            ((map.pos.x + 8) + entity.x) * scaleFactor,
             (map.pos.y + entity.y) * scaleFactor
           );
           k.add(player);
+          continue;
+        }
+        if (entity.name === 'bunny') {
+          bunny.pos = k.vec2(
+            ((map.pos.x + 8) + entity.x) * scaleFactor,
+            (map.pos.y + entity.y) * scaleFactor
+          );
+          k.add(bunny);
+          continue;
+        }
+        if (entity.name === 'slime') {
+          slime.pos = k.vec2(
+            ((map.pos.x + 8) + entity.x) * scaleFactor,
+            ((map.pos.y + 8) + entity.y) * scaleFactor
+          );
+          k.add(slime);
+          continue;
+        }
+        if (entity.name === 'frog') {
+          frog.pos = k.vec2(
+            ((map.pos.x + 8) + entity.x) * scaleFactor,
+            ((map.pos.y + 8) + entity.y) * scaleFactor
+          );
+          k.add(frog);
           continue;
         }
       }
