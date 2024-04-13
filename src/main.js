@@ -214,33 +214,33 @@ k.scene('main', async () => {
   k.onKeyDown('left', () => {
     if (player.isInDialogue) return;
 
-    player.direction = 'left';
-    player.move(-player.speed, 0);
-    player.play('walk-left');
-    return;
+    if (player.curAnim() !== 'walk-left') player.play('walk-left');
+      player.direction = 'left';
+      player.move(-player.speed, 0);
+    return
   });
   k.onKeyDown('right', () => {
     if (player.isInDialogue) return;
 
+    if (player.curAnim() !== 'walk-right') player.play('walk-right');
     player.direction = 'right';
     player.move(player.speed, 0);
-    player.play('walk-right');
     return;
   });
   k.onKeyDown('up', () => {
     if (player.isInDialogue) return;
 
+    if (player.curAnim() !== 'walk-up') player.play('walk-up');
     player.direction = 'up';
     player.move(0, -player.speed);
-    player.play('walk-up');
     return;
   });
   k.onKeyDown('down', () => {
     if (player.isInDialogue) return;
 
+    if (player.curAnim() !== 'walk-down') player.play('walk-down');
     player.direction = 'down';
     player.move(0, player.speed);
-    player.play('walk-down');
     return;
   });
 
