@@ -211,6 +211,58 @@ k.scene('main', async () => {
     }
   });
 
+  k.onKeyDown('left', () => {
+    if (player.isInDialogue) return;
+
+    player.direction = 'left';
+    player.move(-player.speed, 0);
+    player.play('walk-left');
+    return;
+  });
+  k.onKeyDown('right', () => {
+    if (player.isInDialogue) return;
+
+    player.direction = 'right';
+    player.move(player.speed, 0);
+    player.play('walk-right');
+    return;
+  });
+  k.onKeyDown('up', () => {
+    if (player.isInDialogue) return;
+
+    player.direction = 'up';
+    player.move(0, -player.speed);
+    player.play('walk-up');
+    return;
+  });
+  k.onKeyDown('down', () => {
+    if (player.isInDialogue) return;
+
+    player.direction = 'down';
+    player.move(0, player.speed);
+    player.play('walk-down');
+    return;
+  });
+
+  k.onKeyRelease(() => {
+    if (player.direction === 'down') {
+      player.play('idle-down');
+      return;
+    }
+    if(player.direction === 'up') {
+      player.play('idle-up')
+      return;
+    }
+    if(player.direction === 'right') {
+      player.play('idle-right')
+      return;
+    }
+    if(player.direction === 'left') {
+      player.play('idle-left')
+      return;
+    }
+  });
+
 });
 
 k.go('main');
