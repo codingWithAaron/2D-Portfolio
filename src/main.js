@@ -15,8 +15,19 @@ k.loadSprite('spritesheet', './spritesheet.png', {
     'idle-up': 823,
     'walk-up': { from: 823, to: 824, loop: true, speed: 8 },
     'bunny-idle': { from: 780, to: 781, loop: true, speed: 2 },
-    'slime-idle': { from: 858, to: 859, loop: true, speed: 2 },
-    'frog-idle': { from: 788, to: 789, loop: true, speed: 2 },
+  },
+});
+k.loadSprite('water-ambience', './water-ambience.png', {
+  sliceX: 8,
+  sliceY: 5,
+  anims: {
+    'fish1': { from: 8, to: 15, loop: true, speed: 8 },
+    'fish2': { from: 0, to: 7, loop: true, speed: 8 },
+    'water1': { from: 16, to: 23, loop: true, speed: 8 },
+    'water4': { from: 16, to: 23, loop: true, speed: 8 },
+    'water2': { from: 24, to: 31, loop: true, speed: 8 },
+    'water5': { from: 24, to: 31, loop: true, speed: 8 },
+    'water3': { from: 32, to: 39, loop: true, speed: 8 },
 
   },
 });
@@ -52,33 +63,88 @@ k.scene('main', async () => {
     k.area({
       shape: new k.Rect(k.vec2(0, 3), 10, 10),
     }),
-    k.body(),
+    k.body({ isStatic: true }),
     k.anchor('center'),
     k.pos(),
     k.scale(scaleFactor),
     'bunny',
   ]);
-  const slime = k.make([
-    k.sprite('spritesheet', { anim: 'slime-idle' }),
+  const fish1 = k.make([
+    k.sprite('water-ambience', { anim: 'fish1' }),
     k.area({
       shape: new k.Rect(k.vec2(0, 3), 10, 10),
     }),
-    k.body(),
+    k.body({ isStatic: true }),
     k.anchor('center'),
     k.pos(),
     k.scale(scaleFactor),
-    'slime',
+    'fish1',
   ]);
-  const frog = k.make([
-    k.sprite('spritesheet', { anim: 'frog-idle' }),
+  const fish2 = k.make([
+    k.sprite('water-ambience', { anim: 'fish2' }),
     k.area({
       shape: new k.Rect(k.vec2(0, 3), 10, 10),
     }),
-    k.body(),
+    k.body({ isStatic: true }),
     k.anchor('center'),
     k.pos(),
     k.scale(scaleFactor),
-    'frog',
+    'fish2',
+  ]);
+  const water1 = k.make([
+    k.sprite('water-ambience', { anim: 'water1' }),
+    k.area({
+      shape: new k.Rect(k.vec2(0, 3), 10, 10),
+    }),
+    k.body({ isStatic: true }),
+    k.anchor('center'),
+    k.pos(),
+    k.scale(scaleFactor),
+    'water1',
+  ]);
+  const water4 = k.make([
+    k.sprite('water-ambience', { anim: 'water4' }),
+    k.area({
+      shape: new k.Rect(k.vec2(0, 3), 10, 10),
+    }),
+    k.body({ isStatic: true }),
+    k.anchor('center'),
+    k.pos(),
+    k.scale(scaleFactor),
+    'water4',
+  ]);
+  const water2 = k.make([
+    k.sprite('water-ambience', { anim: 'water2' }),
+    k.area({
+      shape: new k.Rect(k.vec2(0, 3), 10, 10),
+    }),
+    k.body({ isStatic: true }),
+    k.anchor('center'),
+    k.pos(),
+    k.scale(scaleFactor),
+    'water2',
+  ]);
+  const water5 = k.make([
+    k.sprite('water-ambience', { anim: 'water5' }),
+    k.area({
+      shape: new k.Rect(k.vec2(0, 3), 10, 10),
+    }),
+    k.body({ isStatic: true }),
+    k.anchor('center'),
+    k.pos(),
+    k.scale(scaleFactor),
+    'water5',
+  ]);
+  const water3 = k.make([
+    k.sprite('water-ambience', { anim: 'water3' }),
+    k.area({
+      shape: new k.Rect(k.vec2(0, 3), 10, 10),
+    }),
+    k.body({ isStatic: true }),
+    k.anchor('center'),
+    k.pos(),
+    k.scale(scaleFactor),
+    'water3',
   ]);
 
   for (const layer of layers) {
@@ -125,22 +191,63 @@ k.scene('main', async () => {
           k.add(bunny);
           continue;
         }
-        if (entity.name === 'slime') {
-          slime.pos = k.vec2(
+        if (entity.name === 'fish1') {
+          fish1.pos = k.vec2(
             ((map.pos.x) + entity.x) * scaleFactor,
             ((map.pos.y) + entity.y) * scaleFactor
           );
-          k.add(slime);
+          k.add(fish1);
           continue;
         }
-        if (entity.name === 'frog') {
-          frog.pos = k.vec2(
+        if (entity.name === 'fish2') {
+          fish2.pos = k.vec2(
             ((map.pos.x) + entity.x) * scaleFactor,
             ((map.pos.y) + entity.y) * scaleFactor
           );
-          k.add(frog);
+          k.add(fish2);
           continue;
         }
+        if (entity.name === 'water1') {
+          water1.pos = k.vec2(
+            ((map.pos.x) + entity.x) * scaleFactor,
+            ((map.pos.y) + entity.y) * scaleFactor
+          );
+          k.add(water1);
+          continue;
+        }
+        if (entity.name === 'water4') {
+          water4.pos = k.vec2(
+            ((map.pos.x) + entity.x) * scaleFactor,
+            ((map.pos.y) + entity.y) * scaleFactor
+          );
+          k.add(water4);
+          continue;
+        }
+        if (entity.name === 'water2') {
+          water2.pos = k.vec2(
+            ((map.pos.x) + entity.x) * scaleFactor,
+            ((map.pos.y) + entity.y) * scaleFactor
+          );
+          k.add(water2);
+          continue;
+        }
+        if (entity.name === 'water5') {
+          water5.pos = k.vec2(
+            ((map.pos.x) + entity.x) * scaleFactor,
+            ((map.pos.y) + entity.y) * scaleFactor
+          );
+          k.add(water5);
+          continue;
+        }
+        if (entity.name === 'water3') {
+          water3.pos = k.vec2(
+            ((map.pos.x) + entity.x) * scaleFactor,
+            ((map.pos.y) + entity.y) * scaleFactor
+          );
+          k.add(water3);
+          continue;
+        }
+        
       }
     }
   }
