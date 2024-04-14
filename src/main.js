@@ -21,12 +21,12 @@ k.loadSprite('spritesheet', './spritesheet.png', {
   },
 });
 
-k.loadSprite('map', './map.png');
+k.loadSprite('map', './map2.png');
 
 k.setBackground(k.Color.fromHex('#000000'));
 
 k.scene('main', async () => {
-  const mapData = await (await fetch('./map.json')).json();
+  const mapData = await (await fetch('./map2.json')).json();
   const layers = mapData.layers;
 
   const map = k.add([k.sprite('map'), k.pos(0), k.scale(scaleFactor)]);
@@ -86,7 +86,7 @@ k.scene('main', async () => {
       for (const boundary of layer.objects) {
         map.add([
           k.area({
-            shape: new k.Rect(k.vec2(8), boundary.width, boundary.height),
+            shape: new k.Rect(k.vec2(0), boundary.width, boundary.height),
           }),
           k.body({ isStatic: true }),
           k.pos(boundary.x, boundary.y),
@@ -111,7 +111,7 @@ k.scene('main', async () => {
       for (const entity of layer.objects) {
         if (entity.name === 'player') {
           player.pos = k.vec2(
-            ((map.pos.x + 8) + entity.x) * scaleFactor,
+            ((map.pos.x) + entity.x) * scaleFactor,
             (map.pos.y + entity.y) * scaleFactor
           );
           k.add(player);
@@ -119,7 +119,7 @@ k.scene('main', async () => {
         }
         if (entity.name === 'bunny') {
           bunny.pos = k.vec2(
-            ((map.pos.x + 8) + entity.x) * scaleFactor,
+            ((map.pos.x) + entity.x) * scaleFactor,
             (map.pos.y + entity.y) * scaleFactor
           );
           k.add(bunny);
@@ -127,16 +127,16 @@ k.scene('main', async () => {
         }
         if (entity.name === 'slime') {
           slime.pos = k.vec2(
-            ((map.pos.x + 8) + entity.x) * scaleFactor,
-            ((map.pos.y + 8) + entity.y) * scaleFactor
+            ((map.pos.x) + entity.x) * scaleFactor,
+            ((map.pos.y) + entity.y) * scaleFactor
           );
           k.add(slime);
           continue;
         }
         if (entity.name === 'frog') {
           frog.pos = k.vec2(
-            ((map.pos.x + 8) + entity.x) * scaleFactor,
-            ((map.pos.y + 8) + entity.y) * scaleFactor
+            ((map.pos.x) + entity.x) * scaleFactor,
+            ((map.pos.y) + entity.y) * scaleFactor
           );
           k.add(frog);
           continue;

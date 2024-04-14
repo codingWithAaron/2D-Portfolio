@@ -1,0 +1,14 @@
+{ "columns":31,
+ "image":"..\/Downloads\/Forest BETA V3\/Settlement.png",
+ "imageheight":576,
+ "imagewidth":496,
+ "margin":0,
+ "name":"Settlement",
+ "spacing":0,
+ "tilecount":1116,
+ "tiledversion":"1.10.2",
+ "tileheight":16,
+ "tilewidth":16,
+ "type":"tileset",
+ "version":"1.10"
+}

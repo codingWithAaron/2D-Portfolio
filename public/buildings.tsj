@@ -1,0 +1,14 @@
+{ "columns":125,
+ "image":"..\/Downloads\/Forest BETA V3\/Sample.png",
+ "imageheight":2000,
+ "imagewidth":2000,
+ "margin":0,
+ "name":"buildings",
+ "spacing":0,
+ "tilecount":15625,
+ "tiledversion":"1.10.2",
+ "tileheight":16,
+ "tilewidth":16,
+ "type":"tileset",
+ "version":"1.10"
+}
