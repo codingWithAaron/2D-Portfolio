@@ -152,7 +152,7 @@ k.scene('main', async () => {
       for (const boundary of layer.objects) {
         map.add([
           k.area({
-            shape: new k.Rect(k.vec2(0), boundary.width, boundary.height),
+            shape: new k.Rect(k.vec2(0, 6), boundary.width, boundary.height),
           }),
           k.body({ isStatic: true }),
           k.pos(boundary.x, boundary.y),
@@ -178,7 +178,7 @@ k.scene('main', async () => {
         if (entity.name === 'player') {
           player.pos = k.vec2(
             ((map.pos.x) + entity.x) * scaleFactor,
-            (map.pos.y + entity.y) * scaleFactor
+            ((map.pos.y + 6) + entity.y) * scaleFactor
           );
           k.add(player);
           continue;
@@ -186,7 +186,7 @@ k.scene('main', async () => {
         if (entity.name === 'bunny') {
           bunny.pos = k.vec2(
             ((map.pos.x) + entity.x) * scaleFactor,
-            (map.pos.y + entity.y) * scaleFactor
+            ((map.pos.y + 6) + entity.y) * scaleFactor
           );
           k.add(bunny);
           continue;
@@ -194,7 +194,7 @@ k.scene('main', async () => {
         if (entity.name === 'fish1') {
           fish1.pos = k.vec2(
             ((map.pos.x) + entity.x) * scaleFactor,
-            ((map.pos.y) + entity.y) * scaleFactor
+            ((map.pos.y + 6) + entity.y) * scaleFactor
           );
           k.add(fish1);
           continue;
@@ -202,7 +202,7 @@ k.scene('main', async () => {
         if (entity.name === 'fish2') {
           fish2.pos = k.vec2(
             ((map.pos.x) + entity.x) * scaleFactor,
-            ((map.pos.y) + entity.y) * scaleFactor
+            ((map.pos.y + 6) + entity.y) * scaleFactor
           );
           k.add(fish2);
           continue;
@@ -210,7 +210,7 @@ k.scene('main', async () => {
         if (entity.name === 'water1') {
           water1.pos = k.vec2(
             ((map.pos.x) + entity.x) * scaleFactor,
-            ((map.pos.y) + entity.y) * scaleFactor
+            ((map.pos.y + 6) + entity.y) * scaleFactor
           );
           k.add(water1);
           continue;
@@ -218,7 +218,7 @@ k.scene('main', async () => {
         if (entity.name === 'water4') {
           water4.pos = k.vec2(
             ((map.pos.x) + entity.x) * scaleFactor,
-            ((map.pos.y) + entity.y) * scaleFactor
+            ((map.pos.y + 6) + entity.y) * scaleFactor
           );
           k.add(water4);
           continue;
@@ -226,7 +226,7 @@ k.scene('main', async () => {
         if (entity.name === 'water2') {
           water2.pos = k.vec2(
             ((map.pos.x) + entity.x) * scaleFactor,
-            ((map.pos.y) + entity.y) * scaleFactor
+            ((map.pos.y + 6) + entity.y) * scaleFactor
           );
           k.add(water2);
           continue;
@@ -234,7 +234,7 @@ k.scene('main', async () => {
         if (entity.name === 'water5') {
           water5.pos = k.vec2(
             ((map.pos.x) + entity.x) * scaleFactor,
-            ((map.pos.y) + entity.y) * scaleFactor
+            ((map.pos.y + 6) + entity.y) * scaleFactor
           );
           k.add(water5);
           continue;
@@ -242,7 +242,7 @@ k.scene('main', async () => {
         if (entity.name === 'water3') {
           water3.pos = k.vec2(
             ((map.pos.x) + entity.x) * scaleFactor,
-            ((map.pos.y) + entity.y) * scaleFactor
+            ((map.pos.y + 6) + entity.y) * scaleFactor
           );
           k.add(water3);
           continue;
