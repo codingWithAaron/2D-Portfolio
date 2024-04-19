@@ -7,6 +7,7 @@
     <title>Aaron Arguelles - 2D Portfolio</title>
   </head>
   <body>
+    <audio id="backgroundMusic"><source src="/background-music.mp3" type="audio/mp3"></audio>
     <style>
       @font-face {
         font-family: 'monogram';
@@ -67,10 +68,27 @@
         color: rgb(238, 238, 238);
         user-select: none;
       }
+      .music-buttons {
+        position: absolute;
+        left: 5%;
+        top: 1vh;
+      }
+      .music-buttons button {
+        font-family: "monogram", monospace;
+        font-size: 20px;
+        display: none;
+      }
+      .music-buttons .active {
+        display: block;
+      }
     </style>
     <div id="app">
       <div id="ui">
         <p class="note"> Tap/Click around to move</p>
+        <div class="music-buttons">
+          <button id="play" onclick="playAudio()" type="button" class="active">Play Music</button>
+          <button id="pause" onclick="pauseAudio()" type="button">Pause Music</button> 
+        </div>
         <div id="textbox-container" style="display:none">
           <div id="textbox">
             <p id="dialogue" class="ui-text"></p>
@@ -85,3 +103,26 @@
     <script type="module" src="src/main.js"></script>
   </body>
 </html>
+
+<script>
+  const playBtn = document.getElementById('play');
+  const pauseBtn = document.getElementById('pause');
+  const music = document.getElementById("backgroundMusic"); 
+
+  playBtn.addEventListener('click', ()=>{
+    pauseBtn.classList.add('active');
+    playBtn.classList.remove('active');
+  })
+  pauseBtn.addEventListener('click', ()=>{
+    playBtn.classList.add('active');
+    pauseBtn.classList.remove('active');
+  })
+  
+  function playAudio() { 
+    music.play(); 
+  }
+
+  function pauseAudio() { 
+    music.pause(); 
+  }
+</script>
