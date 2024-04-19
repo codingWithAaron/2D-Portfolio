@@ -159,7 +159,11 @@ k.scene('main', async () => {
           boundary.name,
         ]);
 
-        if (boundary.name) {
+        if(boundary.name == 'house') {
+          player.onCollide(boundary.name, () => {
+            k.go('main');
+          });
+        } else {
           player.onCollide(boundary.name, () => {
             player.isInDialogue = true;
             displayDialogue(

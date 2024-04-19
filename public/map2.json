@@ -973,6 +973,17 @@
                  "width":29.6336206896552,
                  "x":400.631157635468,
                  "y":289.793719211823
+                }, 
+                {
+                 "height":9.61554132238139,
+                 "id":87,
+                 "name":"house",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":43.6773741423426,
+                 "x":122.39443276455,
+                 "y":78.0651575156049
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1100,7 +1111,7 @@
          "y":0
         }],
  "nextlayerid":12,
- "nextobjectid":86,
+ "nextobjectid":88,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.2",
