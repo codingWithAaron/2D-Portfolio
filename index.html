@@ -89,6 +89,7 @@
         height: 224px;
         padding: 43px 0 50px 60px;
         left: -20px;
+        display: flex;
       }
       .player-hud h1 {
         margin: 0;
@@ -96,6 +97,9 @@
       }
       .player-hud p {
         margin: 0;
+      }
+      #weather {
+        margin-left: 50px;
       }
       .controls {
         background-image: url('/controls.png');
@@ -133,10 +137,15 @@
     </style>
     <div id="app">
       <div id="ui">
-        <div class="player-hud">
-          <h1>Aaron Arguelles</h1>
-          <p>Lvl: 28</p>
-          <p>Class: Web Developer</p>
+        <div id="HUD" class="player-hud">
+          <div>
+            <h1>Aaron Arguelles</h1>
+            <p>Lvl: 28</p>
+            <p>Class: Web Developer</p>
+          </div>
+          <div>
+            <img id="weather" src="/day/1.png">
+          </div>
         </div>
         <div class="controls">
           <p class="note"> Tap/Click to move around</p>
@@ -168,6 +177,19 @@
   const playBtn = document.getElementById('play');
   const pauseBtn = document.getElementById('pause');
   const music = document.getElementById("backgroundMusic"); 
+  const weather = document.getElementById('weather');
+  const weatherSrcs = [
+    '/day/1.png',
+    '/day/2.png',
+    '/day/3.png',
+    '/day/4.png',
+    '/day/5.png',
+    '/day/6.png',
+    '/day/7.png',
+    '/day/8.png',
+    '/day/9.png',
+    '/day/10.png',
+  ]
 
   playBtn.addEventListener('click', ()=>{
     pauseBtn.classList.add('active');
@@ -185,4 +207,16 @@
   function pauseAudio() { 
     music.pause(); 
   }
+  weatherSrcs.forEach((src, index)=>{
+      setTimeout(()=>{
+        weather.src = src
+      }, Number(index + '000') / 6)
+    })
+  setInterval(()=>{
+    weatherSrcs.forEach((src, index)=>{
+      setTimeout(()=>{
+        weather.src = src
+      }, Number(index + '000') / 6)
+    })
+  }, 2000);
 </script>
