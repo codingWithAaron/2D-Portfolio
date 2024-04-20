@@ -7,7 +7,7 @@
     <title>Aaron Arguelles - 2D Portfolio</title>
   </head>
   <body>
-    <audio id="backgroundMusic"><source src="/background-music.mp3" type="audio/mp3"></audio>
+    <audio loop id="backgroundMusic"><source src="/background-music.mp3" type="audio/mp3"></audio>
     <style>
       @font-face {
         font-family: 'monogram';
@@ -22,6 +22,7 @@
         width: 100%;
         height: 100%;
         position: relative;
+        overflow: hidden;
       }
       #textbox {
         position: absolute;
@@ -29,10 +30,10 @@
         right: 10%;
         bottom: 2vh;
         min-height: 10vh;
-        background: white;
+        background-color: #ECDDC0;
         border-radius: 3px;
-        outline-style: solid;
-        padding: 1rem;
+        border: 1px solid gray;
+        padding: 1.5rem;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
@@ -40,6 +41,26 @@
         align-items: flex-start;
         word-spacing: 0.2rem;
         filter: drop-shadow(0 0 0.75rem rgb(112,112,112));
+      }
+      #textbox .bl {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      #textbox .br {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+      #textbox .tl {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      #textbox .tr {
+        position: absolute;
+        top: 0;
+        right: 0;
       }
       .ui-text {
         margin: 0;
@@ -59,19 +80,47 @@
         align-self: flex-end;
         margin-top: 1rem;
       }
+      .player-hud {
+        background-image: url('/player-hud.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        width: 500px;
+        height: 224px;
+        padding: 43px 0 50px 60px;
+        left: -20px;
+      }
+      .player-hud h1 {
+        margin: 0;
+        font-size: 50px;
+      }
+      .player-hud p {
+        margin: 0;
+      }
+      .controls {
+        background-image: url('/controls.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        width: 420px;
+        height: 200px;
+        top: 120px;
+        right: -100px;
+      }
       .note {
         position: absolute;
-        left: 5%;
-        top: 1vh;
+        right: 28%;
+        top: 35px;
         display: flex;
         flex-direction: column;
-        color: rgb(238, 238, 238);
+        color: rgb(0, 0, 0);
         user-select: none;
+        font-size: 1.6rem;
       }
       .music-buttons {
         position: absolute;
-        left: 5%;
-        top: 1vh;
+        right: 28%;
+        top: 90px;
       }
       .music-buttons button {
         font-family: "monogram", monospace;
@@ -84,13 +133,24 @@
     </style>
     <div id="app">
       <div id="ui">
-        <p class="note"> Tap/Click around to move</p>
-        <div class="music-buttons">
-          <button id="play" onclick="playAudio()" type="button" class="active">Play Music</button>
-          <button id="pause" onclick="pauseAudio()" type="button">Pause Music</button> 
+        <div class="player-hud">
+          <h1>Aaron Arguelles</h1>
+          <p>Lvl: 28</p>
+          <p>Class: Web Developer</p>
+        </div>
+        <div class="controls">
+          <p class="note"> Tap/Click to move around</p>
+          <div class="music-buttons">
+            <button id="play" onclick="playAudio()" type="button" class="active">Play Music</button>
+            <button id="pause" onclick="pauseAudio()" type="button">Pause Music</button> 
+          </div>
         </div>
         <div id="textbox-container" style="display:none">
           <div id="textbox">
+            <img class="bl" src="/bl-text-border.png" alt="bottom left text box border">
+            <img class="br" src="/br-text-border.png" alt="bottom right text box border">
+            <img class="tl" src="/tl-text-border.png" alt="top left text box border">
+            <img class="tr" src="/tr-text-border.png" alt="top right text box border">
             <p id="dialogue" class="ui-text"></p>
             <div class="btn-container">
               <button id="close" class="ui-close-btn">Close</button>

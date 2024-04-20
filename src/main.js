@@ -159,11 +159,7 @@ k.scene('main', async () => {
           boundary.name,
         ]);
 
-        if(boundary.name == 'house') {
-          player.onCollide(boundary.name, () => {
-            k.go('main');
-          });
-        } else {
+        if(boundary.name) {
           player.onCollide(boundary.name, () => {
             player.isInDialogue = true;
             displayDialogue(
@@ -255,12 +251,6 @@ k.scene('main', async () => {
       }
     }
   }
-
-  setCamScale(k);
-
-  k.onResize(() => {
-    setCamScale(k);
-  });
 
   k.onUpdate(() => {
     k.camPos(player.worldPos().x, player.worldPos().y - 100);

@@ -977,7 +977,7 @@
                 {
                  "height":9.61554132238139,
                  "id":87,
-                 "name":"house",
+                 "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -987,7 +987,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
