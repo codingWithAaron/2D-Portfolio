@@ -60,20 +60,6 @@ body {
 #start:hover {
   background-image: url('/play-selected.png');
 }
-#exit {
-  background-image: url('/exit-button.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 200px;
-  height: 50px;
-  border: unset;
-  background-color: transparent;
-  cursor: pointer;
-}
-#exit:hover {
-  background-image: url('/exit-selected.png');
-}
 #gitHub, #linkedIn {
   display: flex;
   align-items: center;
