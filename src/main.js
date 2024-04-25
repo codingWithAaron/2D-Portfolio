@@ -372,4 +372,24 @@ k.scene('main', async () => {
 
 });
 
-k.go('main');
+// ------------ Start Page Logic ----------------
+const startScreen = document.getElementById('startScreen');
+const startButton = document.getElementById('start');
+const ui = document.getElementById('ui');
+const playMusic = document.getElementById('play');
+const pauseMusic = document.getElementById('pause');
+const music = document.getElementById("backgroundMusic"); 
+const app = document.getElementById('app');
+
+
+
+startButton.addEventListener('click', ()=>{
+  startScreen.style.display = 'none';
+  startScreen.setAttribute('aria-hidden', 'true');
+  ui.style.display = 'block';
+  app.setAttribute('aria-hidden', 'false');
+  k.go('main');
+  pauseMusic.classList.add('active');
+  playMusic.classList.remove('active');
+  music.play();
+})

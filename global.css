@@ -1,0 +1,214 @@
+@font-face {
+  font-family: 'monogram';
+  src: url(monogram.ttf);
+}
+body {
+  font-family: "monogram", monospace;
+  font-size: 2rem;
+  overflow: hidden;
+}
+#app {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+#startScreen {
+  position: absolute;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  justify-content: center;
+}
+#startScreen img {
+  min-width: 1100px;
+}
+#startPage {
+  position: absolute;
+}
+#startPage img {
+  min-width: unset;
+  width: 700px;
+}
+#optionButtons {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 700px;
+  height: 753px;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#start {
+  background-image: url('/play-button.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 200px;
+  height: 50px;
+  border: unset;
+  background-color: transparent;
+  cursor: pointer;
+}
+#start:hover {
+  background-image: url('/play-selected.png');
+}
+#exit {
+  background-image: url('/exit-button.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 200px;
+  height: 50px;
+  border: unset;
+  background-color: transparent;
+  cursor: pointer;
+}
+#exit:hover {
+  background-image: url('/exit-selected.png');
+}
+#gitHub, #linkedIn {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+#gitHub img, #linkedIn img {
+  min-width: unset;
+  width: 50px;
+}
+#gitHub a, #linkedIn a {
+  color: black;
+  text-decoration: none;
+}
+#gitHub a:hover, #linkedIn a:hover {
+  text-decoration: underline;
+  text-decoration-color: #b02a36;
+}
+#ui {
+  display: none;
+}
+#textbox {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 2vh;
+  min-height: 10vh;
+  background-color: #ECDDC0;
+  border-radius: 3px;
+  border: 1px solid gray;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  word-spacing: 0.2rem;
+  filter: drop-shadow(0 0 0.75rem rgb(112,112,112));
+}
+#textbox .bl {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-user-drag: none;
+}
+#textbox .br {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  -webkit-user-drag: none;
+}
+#textbox .tl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-user-drag: none;
+}
+#textbox .tr {
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-user-drag: none;
+}
+.ui-text {
+  margin: 0;
+  user-select: none;
+}
+.ui-close-btn {
+  font-family: 'monogram', monospace;
+  border-style: none;
+  border-radius: 3px;
+  padding: 1rem;
+  font-size: inherit;
+}
+.ui-close-btn:hover {
+  background-color: rgb(216, 214, 214);
+}
+.btn-container {
+  align-self: flex-end;
+  margin-top: 1rem;
+}
+.player-hud {
+  background-image: url('/player-hud.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  width: 500px;
+  height: 224px;
+  padding: 43px 0 50px 60px;
+  left: -20px;
+  display: flex;
+  user-select: none;
+}
+.player-hud h1 {
+  margin: 0;
+  font-size: 50px;
+}
+.player-hud p {
+  margin: 0;
+}
+#weather {
+  margin-left: 50px;
+  width: 96px;
+  height: 96px;
+  -webkit-user-drag: none;
+}
+.controls {
+  background-image: url('/controls.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  width: 420px;
+  height: 200px;
+  top: 120px;
+  right: -100px;
+}
+.note {
+  position: absolute;
+  right: 28%;
+  top: 35px;
+  display: flex;
+  flex-direction: column;
+  color: rgb(0, 0, 0);
+  user-select: none;
+  font-size: 1.6rem;
+}
+.music-buttons {
+  position: absolute;
+  right: 28%;
+  top: 90px;
+}
+.music-buttons button {
+  font-family: "monogram", monospace;
+  font-size: 20px;
+  display: none;
+}
+.music-buttons .active {
+  display: block;
+}

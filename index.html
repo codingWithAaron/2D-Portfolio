@@ -6,145 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="2D Game Portfolio by Aaron Arguelles"/>
     <title>Aaron Arguelles - 2D Portfolio</title>
+    <link rel="stylesheet" href="global.css">
   </head>
   <body>
     <audio loop id="backgroundMusic"><source src="/background-music.mp3" type="audio/mp3"></audio>
-    <style>
-      @font-face {
-        font-family: 'monogram';
-        src: url(monogram.ttf);
-      }
-      body {
-        font-family: "monogram", monospace;
-        font-size: 2rem;
-        overflow: hidden;
-      }
-      #app {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        overflow: hidden;
-      }
-      #textbox {
-        position: absolute;
-        left: 10%;
-        right: 10%;
-        bottom: 2vh;
-        min-height: 10vh;
-        background-color: #ECDDC0;
-        border-radius: 3px;
-        border: 1px solid gray;
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        align-items: flex-start;
-        word-spacing: 0.2rem;
-        filter: drop-shadow(0 0 0.75rem rgb(112,112,112));
-      }
-      #textbox .bl {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        -webkit-user-drag: none;
-      }
-      #textbox .br {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        -webkit-user-drag: none;
-      }
-      #textbox .tl {
-        position: absolute;
-        top: 0;
-        left: 0;
-        -webkit-user-drag: none;
-      }
-      #textbox .tr {
-        position: absolute;
-        top: 0;
-        right: 0;
-        -webkit-user-drag: none;
-      }
-      .ui-text {
-        margin: 0;
-        user-select: none;
-      }
-      .ui-close-btn {
-        font-family: 'monogram', monospace;
-        border-style: none;
-        border-radius: 3px;
-        padding: 1rem;
-        font-size: inherit;
-      }
-      .ui-close-btn:hover {
-        background-color: rgb(216, 214, 214);
-      }
-      .btn-container {
-        align-self: flex-end;
-        margin-top: 1rem;
-      }
-      .player-hud {
-        background-image: url('/player-hud.png');
-        background-repeat: no-repeat;
-        background-size: contain;
-        position: absolute;
-        width: 500px;
-        height: 224px;
-        padding: 43px 0 50px 60px;
-        left: -20px;
-        display: flex;
-        user-select: none;
-      }
-      .player-hud h1 {
-        margin: 0;
-        font-size: 50px;
-      }
-      .player-hud p {
-        margin: 0;
-      }
-      #weather {
-        margin-left: 50px;
-        width: 96px;
-        height: 96px;
-        -webkit-user-drag: none;
-      }
-      .controls {
-        background-image: url('/controls.png');
-        background-repeat: no-repeat;
-        background-size: contain;
-        position: absolute;
-        width: 420px;
-        height: 200px;
-        top: 120px;
-        right: -100px;
-      }
-      .note {
-        position: absolute;
-        right: 28%;
-        top: 35px;
-        display: flex;
-        flex-direction: column;
-        color: rgb(0, 0, 0);
-        user-select: none;
-        font-size: 1.6rem;
-      }
-      .music-buttons {
-        position: absolute;
-        right: 28%;
-        top: 90px;
-      }
-      .music-buttons button {
-        font-family: "monogram", monospace;
-        font-size: 20px;
-        display: none;
-      }
-      .music-buttons .active {
-        display: block;
-      }
-    </style>
-    <div id="app">
+    <div id="startScreen">
+      <img src="/desk.png" alt="background brown desk">
+      <div id="startPage" class="start-page">
+        <img src="start-page.png" class="piece of paper on top of desk">
+        <div id="optionButtons">
+          <button id="start" aria-label="Start button in the style of a game button"></button>
+          <button id="exit" aria-label="Exit button in the style of a game button"></button>
+          <div id="gitHub">
+            <img src="github-mark.png" alt="GitHub Logo">
+            <a href="https://github.com/codingWithAaron">GitHub Profile</a>
+          </div>
+          <div id="linkedIn">
+            <img src="linkedIn.svg" alt="LinkedIn Logo">
+            <a href="https://www.linkedin.com/in/aaron-arguelles/">LinkedIn Profile</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="app" aria-hidden="true">
       <div id="ui">
         <div id="HUD" class="player-hud">
           <div>
@@ -183,8 +67,8 @@
 </html>
 
 <script>
-  const playBtn = document.getElementById('play');
-  const pauseBtn = document.getElementById('pause');
+  const playMusic = document.getElementById('play');
+  const pauseMusic = document.getElementById('pause');
   const music = document.getElementById("backgroundMusic"); 
   const weather = document.getElementById('weather');
   const weatherSrcs = [
@@ -200,13 +84,13 @@
     '/day/10.png',
   ]
 
-  playBtn.addEventListener('click', ()=>{
-    pauseBtn.classList.add('active');
-    playBtn.classList.remove('active');
+  playMusic.addEventListener('click', ()=>{
+    pauseMusic.classList.add('active');
+    playMusic.classList.remove('active');
   })
-  pauseBtn.addEventListener('click', ()=>{
-    playBtn.classList.add('active');
-    pauseBtn.classList.remove('active');
+  pauseMusic.addEventListener('click', ()=>{
+    playMusic.classList.add('active');
+    pauseMusic.classList.remove('active');
   })
   
   function playAudio() { 
