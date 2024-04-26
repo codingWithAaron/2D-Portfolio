@@ -372,7 +372,7 @@ k.scene('main', async () => {
 
 });
 
-// ------------ Start Page Logic ----------------
+// ------------ Start Page ----------------
 const startScreen = document.getElementById('startScreen');
 const startButton = document.getElementById('start');
 const ui = document.getElementById('ui');
@@ -393,3 +393,43 @@ startButton.addEventListener('click', ()=>{
   playMusic.classList.remove('active');
   music.play();
 })
+
+// ------------ Music ----------------
+playMusic.addEventListener('click', ()=>{
+  pauseMusic.classList.add('active');
+  playMusic.classList.remove('active');
+  music.play();
+})
+pauseMusic.addEventListener('click', ()=>{
+  playMusic.classList.add('active');
+  pauseMusic.classList.remove('active');
+  music.pause();
+})
+
+// ------------ Weather Animation ----------------
+const weather = document.getElementById('weather');
+  const weatherSrcs = [
+    '/day/1.png',
+    '/day/2.png',
+    '/day/3.png',
+    '/day/4.png',
+    '/day/5.png',
+    '/day/6.png',
+    '/day/7.png',
+    '/day/8.png',
+    '/day/9.png',
+    '/day/10.png',
+  ]
+
+  weatherSrcs.forEach((src, index)=>{
+      setTimeout(()=>{
+        weather.src = src
+      }, Number(index + '000') / 6)
+    })
+  setInterval(()=>{
+    weatherSrcs.forEach((src, index)=>{
+      setTimeout(()=>{
+        weather.src = src
+      }, Number(index + '000') / 6)
+    })
+  }, 2000);

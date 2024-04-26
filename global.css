@@ -2,6 +2,9 @@
   font-family: 'monogram';
   src: url(monogram.ttf);
 }
+* {
+  box-sizing: border-box;
+}
 body {
   font-family: "monogram", monospace;
   font-size: 2rem;
@@ -40,11 +43,34 @@ body {
   gap: 20px;
   width: 700px;
   height: 753px;
-  top: 0;
+  top: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+#headerContainer {
+  position: absolute;
+  top: 80px;
+  width: 500px;
+  height: 200px;
+  padding: 80px;
+}
+#headerContainer h1 {
+  margin: 0;
+  z-index: 30;
+  top: 75px;
+  left: 115px;
+  position: absolute;
+}
+#headerContainer .header-banner {
+  width: 500px;
+  height: 200px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 29;
 }
 #start {
   background-image: url('/play-button.png');
@@ -57,7 +83,7 @@ body {
   background-color: transparent;
   cursor: pointer;
 }
-#start:hover {
+#start:hover, #start:focus {
   background-image: url('/play-selected.png');
 }
 #gitHub, #linkedIn {
@@ -145,14 +171,14 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
-  width: 500px;
+  width: 560px;
   height: 224px;
   padding: 43px 0 50px 60px;
   left: -20px;
   display: flex;
   user-select: none;
 }
-.player-hud h1 {
+.player-hud h2 {
   margin: 0;
   font-size: 50px;
 }

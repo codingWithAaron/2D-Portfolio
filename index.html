@@ -10,11 +10,15 @@
   </head>
   <body>
     <audio loop id="backgroundMusic"><source src="/background-music.mp3" type="audio/mp3"></audio>
-    <div id="startScreen">
+    <section id="startScreen">
       <img src="/desk.png" alt="background brown desk">
       <div id="startPage" class="start-page">
         <img src="start-page.png" alt="piece of paper on top of desk">
         <div id="optionButtons">
+          <div id="headerContainer">
+            <h1>The Legend of Me</h1>
+            <img class="header-banner" src="header-banner.png" alt="decorative header banner">
+          </div>
           <button id="start" aria-label="Start button in the style of a game button"></button>
           <div id="gitHub">
             <img src="github-mark.png" alt="GitHub Logo">
@@ -26,12 +30,12 @@
           </div>
         </div>
       </div>
-    </div>
-    <div id="app" aria-hidden="true">
+    </section>
+    <section id="app" aria-hidden="true">
       <div id="ui">
         <div id="HUD" class="player-hud">
           <div>
-            <h1>Aaron Arguelles</h1>
+            <h2>Aaron Arguelles</h2>
             <p>Lvl: 28</p>
             <p>Class: Web Developer</p>
           </div>
@@ -42,8 +46,8 @@
         <div class="controls">
           <p class="note"> Tap/Click to move around</p>
           <div class="music-buttons">
-            <button id="play" onclick="playAudio()" type="button" class="active">Play Music</button>
-            <button id="pause" onclick="pauseAudio()" type="button">Pause Music</button> 
+            <button id="play" type="button" class="active">Play Music</button>
+            <button id="pause" type="button">Pause Music</button> 
           </div>
         </div>
         <div id="textbox-container" style="display:none">
@@ -60,55 +64,7 @@
         </div>
       </div>
       <canvas id="game"></canvas>
-    </div>
+    </section>
     <script type="module" src="src/main.js"></script>
   </body>
 </html>
-
-<script>
-  const playMusic = document.getElementById('play');
-  const pauseMusic = document.getElementById('pause');
-  const music = document.getElementById("backgroundMusic"); 
-  const weather = document.getElementById('weather');
-  const weatherSrcs = [
-    '/day/1.png',
-    '/day/2.png',
-    '/day/3.png',
-    '/day/4.png',
-    '/day/5.png',
-    '/day/6.png',
-    '/day/7.png',
-    '/day/8.png',
-    '/day/9.png',
-    '/day/10.png',
-  ]
-
-  playMusic.addEventListener('click', ()=>{
-    pauseMusic.classList.add('active');
-    playMusic.classList.remove('active');
-  })
-  pauseMusic.addEventListener('click', ()=>{
-    playMusic.classList.add('active');
-    pauseMusic.classList.remove('active');
-  })
-  
-  function playAudio() { 
-    music.play(); 
-  }
-
-  function pauseAudio() { 
-    music.pause(); 
-  }
-  weatherSrcs.forEach((src, index)=>{
-      setTimeout(()=>{
-        weather.src = src
-      }, Number(index + '000') / 6)
-    })
-  setInterval(()=>{
-    weatherSrcs.forEach((src, index)=>{
-      setTimeout(()=>{
-        weather.src = src
-      }, Number(index + '000') / 6)
-    })
-  }, 2000);
-</script>
