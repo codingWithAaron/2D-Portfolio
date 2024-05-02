@@ -372,6 +372,57 @@ k.scene('main', async () => {
 
 });
 
+// ------------ Page Animation ----------------
+const animatedPage = document.getElementById('startAnimated');
+const animatedContainer = document.getElementById('animatedPage');
+const pageSrcs = [
+  '/shop/1.png',
+  '/shop/2.png',
+  '/shop/3.png',
+  '/shop/4.png',
+  '/shop/5.png',
+  '/shop/6.png',
+  '/shop/7.png',
+  '/shop/8.png',
+  '/shop/9.png',
+  '/shop/10.png',
+  '/shop/11.png',
+  '/shop/12.png',
+  '/shop/13.png',
+  '/shop/14.png',
+  '/shop/15.png',
+  '/shop/16.png',
+  '/shop/17.png',
+  '/shop/18.png',
+  '/shop/19.png',
+  '/shop/20.png',
+  '/shop/21.png',
+  '/shop/22.png',
+  '/shop/23.png',
+  '/shop/24.png',
+  '/shop/25.png',
+  '/shop/26.png',
+  '/shop/27.png',
+  '/shop/28.png',
+  '/shop/29.png',
+  '/shop/30.png',
+  '/shop/31.png',
+  '/shop/32.png',
+  '/shop/33.png',
+  '/shop/34.png',
+  '/shop/35.png',
+  '/shop/36.png',
+];
+
+pageSrcs.forEach((src, index)=>{
+  setTimeout(()=>{
+    animatedPage.src = src
+  }, Number(index + '000') / 15);
+  setTimeout(()=>{
+    animatedContainer.style.display = 'none'
+  }, Number(35 + '000') / 15);
+});
+
 // ------------ Start Page ----------------
 const startScreen = document.getElementById('startScreen');
 const startButton = document.getElementById('start');

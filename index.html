@@ -11,12 +11,14 @@
   <body>
     <audio loop id="backgroundMusic"><source src="/background-music.mp3" type="audio/mp3"></audio>
     <section id="startScreen">
-      <img src="/desk.png" alt="background brown desk">
+      <div id="animatedPage" class="animated-page">
+        <img id="startAnimated" src="/shop/1.png" alt="animated piece of paper revealing content">
+      </div>
       <div id="startPage" class="start-page">
         <img src="start-page.png" alt="piece of paper on top of desk">
         <div id="optionButtons">
           <div id="headerContainer">
-            <h1>The Legend of Me</h1>
+            <h1>Greetings Adventurer!</h1>
             <img class="header-banner" src="header-banner.png" alt="decorative header banner">
           </div>
           <button id="start" aria-label="Start button in the style of a game button"></button>
@@ -30,6 +32,7 @@
           </div>
         </div>
       </div>
+      <img src="/desk.png" alt="background brown desk">
     </section>
     <section id="app" aria-hidden="true">
       <div id="ui">

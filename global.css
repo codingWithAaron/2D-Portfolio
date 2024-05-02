@@ -29,6 +29,14 @@ body {
 #startScreen img {
   min-width: 1100px;
 }
+#animatedPage {
+  position: absolute;
+  z-index: 100;
+}
+#animatedPage img {
+  min-width: unset;
+  width: 461px;
+}
 #startPage {
   position: absolute;
 }
@@ -59,9 +67,10 @@ body {
 #headerContainer h1 {
   margin: 0;
   z-index: 30;
-  top: 75px;
-  left: 115px;
+  top: 78px;
+  left: 110px;
   position: absolute;
+  font-size: 40px;
 }
 #headerContainer .header-banner {
   width: 500px;
