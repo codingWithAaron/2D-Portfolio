@@ -37,6 +37,7 @@ k.loadSprite('map', './map2.png');
 k.setBackground(k.Color.fromHex('#000000'));
 
 k.scene('main', async () => {
+  // ---------Creates Map, Layers, Character Sprites, etc. ------------------
   const mapData = await (await fetch('./map2.json')).json();
   const layers = mapData.layers;
 
@@ -147,6 +148,7 @@ k.scene('main', async () => {
     'water3',
   ]);
 
+  // ------------Sets Invisible Boundaries-----------------
   for (const layer of layers) {
     if (layer.name === 'boundaries') {
       for (const boundary of layer.objects) {
@@ -173,6 +175,7 @@ k.scene('main', async () => {
       continue;
     }
 
+    // ---------------Adds Sprites to the Map---------------
     if (layer.name === 'spawnpoints') {
       for (const entity of layer.objects) {
         if (entity.name === 'player') {
@@ -252,6 +255,7 @@ k.scene('main', async () => {
     }
   }
 
+  // -----------------Updates Screen Scale based on Screen Size ---------------
   setCamScale(k);
 
   k.onResize(() => {
@@ -262,6 +266,7 @@ k.scene('main', async () => {
     k.camPos(player.worldPos().x, player.worldPos().y - 100);
   });
 
+  // -------------------------Movement Controls ---------------------------------
   k.onMouseDown((mouseBtn) => {
     if (mouseBtn !== 'left' || player.isInDialogue) return;
 
@@ -372,7 +377,7 @@ k.scene('main', async () => {
 
 });
 
-// ------------ Page Animation ----------------
+// ------------ Start Page Animation ----------------
 const animatedPage = document.getElementById('startAnimated');
 const animatedContainer = document.getElementById('animatedPage');
 const pageSrcs = [
