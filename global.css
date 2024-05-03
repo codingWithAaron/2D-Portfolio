@@ -244,14 +244,29 @@ body {
   background-repeat: no-repeat;
   padding: 0;
   cursor: pointer;
+  position: absolute;
+  top: 103px;
 }
 .inventory-buttons:hover, .inventory-buttons:focus {
   background-image: url('/item-highlighter.png');
 }
 #resumeButton {
-  position: absolute;
-  top: 103px;
   left: 360px;
+}
+#candyButton {
+  left: 290px;
+}
+#tabletButton {
+  left: 220px;
+}
+#projectButton {
+  left: 569px;
+}
+#ironButton {
+  left: 639px;
+}
+#featherButton {
+  left: 709px;
 }
 .note {
   position: absolute;
