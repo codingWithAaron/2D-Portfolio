@@ -36,29 +36,31 @@ k.loadSprite('map', './map2.png');
 
 k.setBackground(k.Color.fromHex('#000000'));
 
+// ---------Creates Player variable------------------
+const player = k.make([
+  k.sprite('spritesheet', { anim: 'idle-down' }),
+  k.area({
+    shape: new k.Rect(k.vec2(0, 3), 10, 10),
+  }),
+  k.body(),
+  k.anchor('center'),
+  k.pos(),
+  k.scale(scaleFactor),
+  {
+    speed: 250,
+    direction: 'down',
+    isInDialogue: false,
+  },
+  'player',
+]);
+
 k.scene('main', async () => {
-  // ---------Creates Map, Layers, Character Sprites, etc. ------------------
+  // ---------Creates Map, Layers, Sprites, etc. ------------------
   const mapData = await (await fetch('./map2.json')).json();
   const layers = mapData.layers;
 
   const map = k.add([k.sprite('map'), k.pos(0), k.scale(scaleFactor)]);
 
-  const player = k.make([
-    k.sprite('spritesheet', { anim: 'idle-down' }),
-    k.area({
-      shape: new k.Rect(k.vec2(0, 3), 10, 10),
-    }),
-    k.body(),
-    k.anchor('center'),
-    k.pos(),
-    k.scale(scaleFactor),
-    {
-      speed: 250,
-      direction: 'down',
-      isInDialogue: false,
-    },
-    'player',
-  ]);
   const bunny = k.make([
     k.sprite('spritesheet', { anim: 'bunny-idle' }),
     k.area({
@@ -489,3 +491,14 @@ startButton.addEventListener('click', ()=>{
 //       }, Number(index + '000') / 6)
 //     })
 //   }, 2000);
+
+// ------------ Inventory Buttons ----------------
+const resumeButton = document.getElementById('resumeButton');
+
+resumeButton.addEventListener('click', ()=>{
+  player.isInDialogue = true;
+  displayDialogue(
+    dialogueData['resume'],
+    () => (player.isInDialogue = false)
+  );
+});
