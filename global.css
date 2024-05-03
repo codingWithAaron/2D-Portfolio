@@ -176,14 +176,15 @@ body {
   margin-top: 1rem;
 }
 .player-hud {
-  background-image: url('/player-hud.png');
+  background-image: url('/character-card.png');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+  background-position: 60% 100%;
   position: absolute;
-  width: 560px;
-  height: 224px;
-  padding: 43px 0 50px 60px;
-  left: -20px;
+  width: 100vw;
+  max-width: 640px;
+  height: 324px;
+  left: 0px;
   display: flex;
   user-select: none;
 }
@@ -207,7 +208,7 @@ body {
   position: absolute;
   width: 420px;
   height: 200px;
-  top: 120px;
+  top: 260px;
   right: -100px;
 }
 .note {
