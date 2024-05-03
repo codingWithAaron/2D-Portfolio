@@ -178,13 +178,14 @@ body {
 .player-hud {
   background-image: url('/character-card.png');
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 60% 100%;
+  background-size: contain;
+  background-position: center;
   position: absolute;
   width: 100vw;
-  max-width: 640px;
+  max-width: 500px;
   height: 324px;
   left: 0px;
+  top: -60px;
   display: flex;
   user-select: none;
 }
@@ -210,6 +211,47 @@ body {
   height: 200px;
   top: 260px;
   right: -100px;
+}
+.inventory-container {
+  width: 100vw;
+  height: 200px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  bottom: 0px;
+  overflow: hidden;
+}
+.inventory {
+  position: absolute;
+  width: 1000px;
+  height: auto;
+  user-select: none;
+  object-fit: cover;
+  -webkit-user-drag: none;
+}
+.button-container {
+  position: absolute;
+  width: 1000px;
+  height: 243px;
+}
+.inventory-buttons {
+  content: "";
+  width: 70px;
+  height: 70px;
+  background-color: transparent;
+  border: unset;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 0;
+  cursor: pointer;
+}
+.inventory-buttons:hover, .inventory-buttons:focus {
+  background-image: url('/item-highlighter.png');
+}
+#resumeButton {
+  position: absolute;
+  top: 103px;
+  left: 360px;
 }
 .note {
   position: absolute;
