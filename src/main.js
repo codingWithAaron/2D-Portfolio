@@ -465,32 +465,32 @@ startButton.addEventListener('click', ()=>{
 // })
 
 // ------------ Weather Animation ----------------
-// const weather = document.getElementById('weather');
-//   const weatherSrcs = [
-//     '/day/1.png',
-//     '/day/2.png',
-//     '/day/3.png',
-//     '/day/4.png',
-//     '/day/5.png',
-//     '/day/6.png',
-//     '/day/7.png',
-//     '/day/8.png',
-//     '/day/9.png',
-//     '/day/10.png',
-//   ]
+const weather = document.getElementById('weather');
+  const weatherSrcs = [
+    '/day/1.png',
+    '/day/2.png',
+    '/day/3.png',
+    '/day/4.png',
+    '/day/5.png',
+    '/day/6.png',
+    '/day/7.png',
+    '/day/8.png',
+    '/day/9.png',
+    '/day/10.png',
+  ]
 
-//   weatherSrcs.forEach((src, index)=>{
-//       setTimeout(()=>{
-//         weather.src = src
-//       }, Number(index + '000') / 6)
-//     })
-//   setInterval(()=>{
-//     weatherSrcs.forEach((src, index)=>{
-//       setTimeout(()=>{
-//         weather.src = src
-//       }, Number(index + '000') / 6)
-//     })
-//   }, 2000);
+  weatherSrcs.forEach((src, index)=>{
+      setTimeout(()=>{
+        weather.src = src
+      }, Number(index + '000') / 6)
+    })
+  setInterval(()=>{
+    weatherSrcs.forEach((src, index)=>{
+      setTimeout(()=>{
+        weather.src = src
+      }, Number(index + '000') / 6)
+    })
+  }, 2000);
 
 // ------------ Inventory Buttons ----------------
 const resumeButton = document.getElementById('resumeButton');

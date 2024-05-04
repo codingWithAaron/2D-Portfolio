@@ -132,6 +132,7 @@ body {
   align-items: flex-start;
   word-spacing: 0.2rem;
   filter: drop-shadow(0 0 0.75rem rgb(112,112,112));
+  z-index: 30;
 }
 #textbox .bl {
   position: absolute;
@@ -197,9 +198,12 @@ body {
   margin: 0;
 }
 #weather {
-  margin-left: 50px;
-  width: 96px;
-  height: 96px;
+  position: absolute;
+  top: 77px;
+  z-index: 20;
+  width: 163px;
+  height: 163px;
+  left: 417px;
   -webkit-user-drag: none;
 }
 .controls {
