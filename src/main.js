@@ -163,15 +163,15 @@ k.scene('main', async () => {
           boundary.name,
         ]);
 
-        if(boundary.name) {
-          player.onCollide(boundary.name, () => {
-            player.isInDialogue = true;
-            displayDialogue(
-              dialogueData[boundary.name],
-              () => (player.isInDialogue = false)
-            );
-          });
-        }
+        // if(boundary.name) {
+        //   player.onCollide(boundary.name, () => {
+        //     player.isInDialogue = true;
+        //     displayDialogue(
+        //       dialogueData[boundary.name],
+        //       () => (player.isInDialogue = false)
+        //     );
+        //   });
+        // }
       }
 
       continue;
