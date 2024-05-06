@@ -161,6 +161,8 @@ body {
 .ui-text {
   margin: 0;
   user-select: none;
+  max-height: 300px;
+  overflow-y: scroll;
 }
 .ui-close-btn {
   font-family: 'monogram', monospace;
