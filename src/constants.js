@@ -12,5 +12,7 @@ export const dialogueData = {
   iron: `<p>Item: Iron Bar</p>
   <p>A simple iron bar. This could be use to craft a number of things.</p>`,
   feather: `<p>Item: Colorful Feather</p>
-  <p>A red, blue and yellow feather from a magical beast. It is said that whomever carries this will be bestowed with great luck and opportunity!</p>`
+  <p>A red, blue and yellow feather from a magical beast. It is said that whomever carries this will be bestowed with great luck and opportunity!</p>`,
+  tablet: `<p>Item: Gold Tablet</p>
+  <p>Hmmm... It looks like there's writing etched into it. What wonders could be contained within?</p>`
 };

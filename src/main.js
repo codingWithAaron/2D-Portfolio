@@ -64,12 +64,12 @@ k.scene('main', async () => {
   const bunny = k.make([
     k.sprite('spritesheet', { anim: 'bunny-idle' }),
     k.area({
-      shape: new k.Rect(k.vec2(0, 3), 10, 10),
+      shape: new k.Rect(k.vec2(0, 3), 15, 20),
     }),
     k.body({ isStatic: true }),
     k.anchor('center'),
     k.pos(),
-    k.scale(scaleFactor),
+    k.scale(3),
     'bunny',
   ]);
   const fish1 = k.make([
@@ -498,6 +498,7 @@ const projectButton = document.getElementById('projectButton');
 const candyButton = document.getElementById('candyButton');
 const ironButton = document.getElementById('ironButton');
 const featherButton = document.getElementById('featherButton');
+const tabletButton = document.getElementById('tabletButton');
 
 
 resumeButton.addEventListener('click', ()=>{
@@ -536,6 +537,14 @@ featherButton.addEventListener('click', ()=>{
   player.isInDialogue = true;
   displayDialogue(
     dialogueData['feather'],
+    () => (player.isInDialogue = false)
+  );
+});
+
+tabletButton.addEventListener('click', ()=>{
+  player.isInDialogue = true;
+  displayDialogue(
+    dialogueData['tablet'],
     () => (player.isInDialogue = false)
   );
 });

@@ -183,10 +183,10 @@ body {
   background-position: center;
   position: absolute;
   width: 100vw;
-  max-width: 500px;
+  max-width: 550px;
   height: 324px;
   left: 0px;
-  top: -60px;
+  top: -45px;
   display: flex;
   user-select: none;
 }
