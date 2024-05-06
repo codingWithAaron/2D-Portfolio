@@ -494,11 +494,20 @@ const weather = document.getElementById('weather');
 
 // ------------ Inventory Buttons ----------------
 const resumeButton = document.getElementById('resumeButton');
+const projectButton = document.getElementById('projectButton');
 
 resumeButton.addEventListener('click', ()=>{
   player.isInDialogue = true;
   displayDialogue(
     dialogueData['resume'],
+    () => (player.isInDialogue = false)
+  );
+});
+
+projectButton.addEventListener('click', ()=>{
+  player.isInDialogue = true;
+  displayDialogue(
+    dialogueData['projects'],
     () => (player.isInDialogue = false)
   );
 });
