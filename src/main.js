@@ -495,6 +495,10 @@ const weather = document.getElementById('weather');
 // ------------ Inventory Buttons ----------------
 const resumeButton = document.getElementById('resumeButton');
 const projectButton = document.getElementById('projectButton');
+const candyButton = document.getElementById('candyButton');
+const ironButton = document.getElementById('ironButton');
+const featherButton = document.getElementById('featherButton');
+
 
 resumeButton.addEventListener('click', ()=>{
   player.isInDialogue = true;
@@ -508,6 +512,30 @@ projectButton.addEventListener('click', ()=>{
   player.isInDialogue = true;
   displayDialogue(
     dialogueData['projects'],
+    () => (player.isInDialogue = false)
+  );
+});
+
+candyButton.addEventListener('click', ()=>{
+  player.isInDialogue = true;
+  displayDialogue(
+    dialogueData['candy'],
+    () => (player.isInDialogue = false)
+  );
+});
+
+ironButton.addEventListener('click', ()=>{
+  player.isInDialogue = true;
+  displayDialogue(
+    dialogueData['iron'],
+    () => (player.isInDialogue = false)
+  );
+});
+
+featherButton.addEventListener('click', ()=>{
+  player.isInDialogue = true;
+  displayDialogue(
+    dialogueData['feather'],
     () => (player.isInDialogue = false)
   );
 });
